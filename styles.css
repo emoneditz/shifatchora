@@ -1,0 +1,227 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #ff7f50, #ff6347);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('https://www.transparenttextures.com/patterns/diamonds.png'); /* Fun texture */
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    width: 80%;
+    max-width: 800px; /* Increased box size */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header */
+h1 {
+    font-size: 2.5em;
+    color: #ff6347;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-transform: capitalize; /* Capitalize first letter of each word */
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #32cd32;
+    color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hidden Birthday Section */
+.birthday-section {
+    display: none;
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 600px; /* Adjusted max-width for better fit */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Flower Burst Animation */
+.flower-burst {
+    position: absolute;
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    animation: flowerBurst 2s ease-out forwards;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes flowerBurst {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    30% {
+        width: 150px;
+        height: 150px;
+        opacity: 1;
+    }
+    50% {
+        width: 300px;
+        height: 300px;
+        opacity: 0.7;
+    }
+    70% {
+        width: 400px;
+        height: 400px;
+        opacity: 0.5;
+    }
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+}
+
+/* Particle Effect (Confetti) */
+.particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: none;
+}
+
+.particles span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff6347;
+    border-radius: 50%;
+    animation: particleMove 1s ease-in-out infinite;
+}
+
+@keyframes particleMove {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Result Text */
+#result {
+    margin-top: 20px;
+    font-size: 1.3em; /* Reduced font size for better fit */
+    font-weight: bold;
+    color: #ff6347;
+    opacity: 0;
+    animation: explodeText 2s 1s forwards;
+    text-transform: capitalize; /* Ensures first letter of each word is capitalized */
+    font-family: "Arial", sans-serif;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+@keyframes explodeText {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Add a birthday cake and balloons background elements */
+.birthday-cake {
+    position: absolute;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    background: url('https://image.shutterstock.com/image-vector/cute-cartoon-birthday-cake-drawing-260nw-1008973002.jpg') no-repeat center;
+    background-size: cover;
+    animation: bounceCake 3s ease-in-out infinite;
+}
+
+@keyframes bounceCake {
+    0% {
+        transform: translateY(0) translateX(-50%);
+    }
+    50% {
+        transform: translateY(-30px) translateX(-50%);
+    }
+    100% {
+        transform: translateY(0) translateX(-50%);
+    }
+}
+
+.balloons {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.balloon {
+    width: 40px;
+    height: 60px;
+    background-color: #ff6347;
+    border-radius: 50%;
+    animation: floatBalloons 4s ease-in-out infinite;
+}
+
+@keyframes floatBalloons {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
